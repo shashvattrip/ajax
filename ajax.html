@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="myapp" lang="en">
+<head>
+	<title>Angularized-Ajax</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="foodstore.js"></script>
+
+	
+</head>
+<body ng-controller="DataCtrl">
+
+	<div class="container">
+		<h1 style="text-align:center;">Ajax using different frameworks</h1>
+
+		<div class="row">
+			<h2>Using Plain Javascript</h2>
+			<p>Enter the food name : <input id="userInput" type="text" class="input-medium"></p>
+			<div id="underInput" style="height:20px;width:300px;">
+
+			</div>
+			<button class="btn btn-success" onclick="process()">Click Here</button>	
+		</div>
+
+		<div class="row">
+			<h2>Using jQuery</h2>
+			<div class="row">
+				<div class="span6">
+					<textarea id="underInput2" rows="3" style="width:620px;"></textarea>
+				</div>
+			</div>	
+			<div class="row">
+				<button class="btn btn-success offset1" onclick="usingjQuery()">Using jQuery</button>	
+			</div>
+		</div>
+
+		<div class="row"> 
+
+			<h2>Using AngularJS</h2>			
+				<div class="row">
+					<div class="span4">
+						<textarea ng-model="message" rows="3" style="width:620px;"></textarea>
+						<div id="underInput3" style="height:20px;width:300px;">
+						</div>
+					</div>	
+				</div>	
+				<div class="row">
+					<button class="btn btn-success offset1">using AngularJS</button>			
+				</div>
+			
+			
+		</div>
+		
+	</div>
+</body>
+</html>
