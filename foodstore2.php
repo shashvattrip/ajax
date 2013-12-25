@@ -5,6 +5,6 @@ header("Content-type: application/json");
 
 $string = file_get_contents("js/phones.json");
 
-echo $string;
+echo ($string);
 
 ?>

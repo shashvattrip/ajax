@@ -1,6 +1,3 @@
-
-
-
 var xmlHttp=createXmlHttpRequestObject();
 
 function createXmlHttpRequestObject()
@@ -115,7 +112,51 @@ var myapp=angular.module('myapp',[]);
 		
 myapp.controller('DataCtrl',function($scope,$http)
 {
+	// Here's the code for making todos in AgnularJS using the MVC project on GitHub
+	//Lets get Cracking!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// Here onwards is the code for AJAX using AngularJS
+
 	$scope.message=[];
+
+	//detecting when the return key was pressed
+	document.getElementById('userInput3').onkeypress=function(e)
+	{
+		if(!e)
+			e=window.event;
+		var keyCode=e.which || e.keyCode;
+		if(keyCode=='13')
+		{
+			//return key was pressed
+			console.log('enter key was pressed\n');
+			return false;
+		}
+	}
 
 	$http(
 		{
@@ -138,3 +179,20 @@ myapp.controller('DataCtrl',function($scope,$http)
 		    console.log(status);
   		});
 });
+
+
+//Writes data to local Storage
+function writeToLocalStorage()
+{
+	localStorage.setItem('ShashvatTestLocalStorage','testingData1');
+	
+}
+
+//reads data from local storage
+function loadFromLocalStorage()
+{
+	console.log('loadFromLocalStorage() function called\n');
+	var data=localStorage.getItem('todos-angularjs-requirejs');	
+	console.log(data);
+}
+
