@@ -106,85 +106,29 @@ function usingjQuery()
 
 
 
-// Using AngularJS
-
-var myapp=angular.module('myapp',[]);
-		
-myapp.controller('DataCtrl',function($scope,$http)
-{
-	// Here's the code for making todos in AgnularJS using the MVC project on GitHub
-	//Lets get Cracking!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	// Here onwards is the code for AJAX using AngularJS
-
-	$scope.message=[];
-
-	//detecting when the return key was pressed
-	document.getElementById('userInput3').onkeypress=function(e)
-	{
-		if(!e)
-			e=window.event;
-		var keyCode=e.which || e.keyCode;
-		if(keyCode=='13')
-		{
-			//return key was pressed
-			console.log('enter key was pressed\n');
-			return false;
-		}
-	}
-
-	$http(
-		{
-			method: 'GET', 
-			url: 'foodstore2.php'
-		})
-
-  		.success(function(data, status, headers, config) 
-  		{
-	    	
-			for(var i=0;i<data.length;i++)
-			{
-				$scope.message+="\t" + data[i].age + " - > " + data[i].name + "\t||||";
-			}
-  		})
-
-  		. error(function(data, status, headers, config) 
-  		{
-		    alert("some shit happened!");
-		    console.log(status);
-  		});
-});
 
 
 //Writes data to local Storage
 function writeToLocalStorage()
 {
-	localStorage.setItem('ShashvatTestLocalStorage','testingData1');
+	
+	var dumArray=
+	[
+		{
+			"name":"task1",
+			"completed":false
+		},
+		{
+			"name":"task2",
+			"id":false
+		},
+		{
+			"name":"task3",
+			"id":true
+		}
+	];
+	// dumArray.push("name":"Another", "id":"2");
+	localStorage.setItem('todo-list-shashvat',JSON.stringify(dumArray));
 	
 }
 
@@ -192,7 +136,8 @@ function writeToLocalStorage()
 function loadFromLocalStorage()
 {
 	console.log('loadFromLocalStorage() function called\n');
-	var data=localStorage.getItem('todos-angularjs-requirejs');	
+	var data=[];
+	data=JSON.parse((localStorage.getItem('todo-list-shashvat') || '[]'));
 	console.log(data);
 }
 

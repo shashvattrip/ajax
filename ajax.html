@@ -8,8 +8,7 @@
 	<script type="text/javascript" src="js/angular.min.js"></script>
 	
 	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="foodstore.js"></script>
-
+	
 	
 </head>
 <body ng-controller="DataCtrl">
@@ -54,10 +53,47 @@
 				</div>
 			</div>
 
-			<div class="span6">
+			<div class="span5">
 				<!-- Display all the todos loaded form localStorage using Angular-->
+				<button class="btn btn-info" ng-click="testFunc()">Test Button</button>
 				<div class="row">
-					
+					<h2>Form validation</h2>
+					<button ng-click="putData()">Put data for Taskr</button>
+
+				</div>	
+
+				<div class="row">
+					<form id="todo-form" ng-submit="addTodo()">
+						<input id="new-todo" placeholder="What needs to be done?" ng-model="newTodo" autofocus>
+					</form>
+
+					<ul id="todo-list">
+						
+						<li ng-repeat="todo in todos">
+							<input type="checkbox" ng-model="todo.completed">
+							<span ng-dblclick="startEditing(todo)" ng-hide="todo.editing">{{todo.TN}}</span>
+
+							<form ng-submit="doneEditing(todo)" ng-show="todo.editing">
+								<input type="text" ng-model="todo.TN" ng-blur="doneEditing(todo)" ng-focus="todo==editedTodo">
+							</form>
+						</li>
+
+
+
+						<!-- add filter to the todo-list in the div below -->
+						<!-- <li ng-repeat="todo in todos" ng-dblclick="editTodo(todo)">
+							<input type="checkbox" ng-model="todo.completed">
+							<label ng-hide="todo.editing">{{todo.name}}</label>
+							
+							<form ng-submit="doneEditing(task)">
+								<input ng-model="todo.name" ng-show="todo.editing" ng-blur="doneEditing(task)" todo-focus="task == editedTodo">
+							</form>
+							
+							<button class="btn btn-danger" ng-click="removeTodo(todo)">Delete</button>
+							<button class="btn btn-success">Mark Complete</button> -->
+						<!-- </li> -->
+
+					</ul>
 				</div>
 
 			</div>
@@ -71,5 +107,9 @@
 
 		</div>
 	</div>
+	<script type="text/javascript" src="foodstore.js"></script>
+	<script type="text/javascript" src="js/myapp.js"></script>
+	<script type="text/javascript" src="js/services/todostorage.js"></script>
+	<script type="text/javascript" src="js/directives/todoFocus.js"></script>
 </body>
 </html>
